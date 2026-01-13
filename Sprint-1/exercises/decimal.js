@@ -1,5 +1,9 @@
 const num = 56.5678;
 
+//Math.trunc() it return only the integer number without rounded number 
+console.log(Math.trunc(56.5678));
+
+
 // You should look up Math functions for this exercise https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
 
 // Create a variable called wholeNumberPart and assign to it an expression that evaluates to 56 ( the whole number part of num )
