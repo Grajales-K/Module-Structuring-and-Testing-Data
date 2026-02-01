@@ -16,5 +16,5 @@ const getOrdinalNumber = require("./get-ordinal-number");
 test("should append 'st' for numbers ending with 1, except those ending with 11", () => {
   expect(getOrdinalNumber(1)).toEqual("1st");
   expect(getOrdinalNumber(21)).toEqual("21st");
-  expect(getOrdinalNumber(31)).toEqual("131st");
+  expect(getOrdinalNumber(131)).toEqual("131st");
 });
