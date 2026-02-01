@@ -9,7 +9,7 @@ Input  ──▶  Function  ──▶  Output
 A function
 - Takes **input** (via **arguments**)
 - Does some work
-- Yields **one output** (via a **return value**)
+- Produces **one output** (via a **return value**)
  
 Example:
 
