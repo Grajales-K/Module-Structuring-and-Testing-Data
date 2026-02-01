@@ -61,6 +61,21 @@ function toPounds(str){
     const decimals = (onlyNumbers/100).toFixed(2);
 
     return `£${decimals}`;
+};
+
+
+
+// =============================== 1st way to test ========================
+
+const examples = ["79p", "hfhbgjk1p", "150p", "£2.50", "11000"];
+for (const example of examples) {
+    console.log(toPounds(example));
 }
 
-console.log(toPounds("hfhbgjk1p"));
+
+// =============================== 2nd way to test ========================
+
+// const examples2 = ["79p", "hfhbgjk1p", "150p", "£2.50", "12000"];
+// for (const example of examples2) {
+//   console.log(`Original: ${example} -> Formatted: ${toPounds(example)}`);
+// };
