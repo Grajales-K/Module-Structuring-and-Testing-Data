@@ -7,7 +7,7 @@ let lastName = "Johnson";
 // https://www.google.com/search?q=get+first+character+of+string+mdn
 
 const initials = firstName.charAt(0) + middleName.charAt(0) + lastName.charAt(0);
-console.log( `acronym = ${initials}`);
+console.log(`initials = ${initials}`);
 
 
 
