@@ -10,10 +10,10 @@ const num = 56.5678;
 const num1 = 56.567954794; // for testing the function that rounds to a specific number of decimal places
 
 const wholeNumberPart = Math.trunc(num);
-const decimalPart = num - wholeNumberPart;
-const fourDigits = Math.round(decimalPart * 10000) / 10000; //rounds to 4 decimal places
-//removed to toFixed() because returns a string and I want
-//to confirm that decimalPart is a number, so I rounded it to 4 decimal places using Math.round() instead.
+const decimalPart = Number((num - wholeNumberPart).toFixed(8));
+// const fourDigits = Math.round(decimalPart * 10000) / 10000; //rounds to 4 decimal places
+
+const fourDigits = roundToDecimalPlaces(decimalPart, 4);// using the function we created to round to 4 decimal places
 const roundedNum = Math.round(num); // rounds to nearest whole number
 
 
