@@ -1,5 +1,7 @@
 const num = 56.5678;
 
+
+
 // You should look up Math functions for this exercise https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
 
 // Create a variable called wholeNumberPart and assign to it an expression that evaluates to 56 ( the whole number part of num )
@@ -9,13 +11,32 @@ const num = 56.5678;
 // Log your variables to the console to check your answers
 
 
-const wholeNumberPart = Math.floor(num);
-console.log(` Whole number = ${wholeNumberPart}`);
 
+const wholeNumberPart = Math.trunc(num);
 const decimalPart = num - wholeNumberPart;
-console.log(` Decimal part = ${decimalPart.toFixed(4)}`); // toFixed(4) to show 4 decimal places instead of whole number
-
-console.log(`type of parameter = ${typeof(wholeNumberPart)}`); //confirm that decimalPart is a number
-
+fourDigits = Math.round(decimalPart * 10000) / 10000; //rounds to 4 decimal places
+//removed to toFixed() because returns a string and I want
+//to confirm that decimalPart is a number, so I rounded it to 4 decimal places using Math.round() instead.
 const roundedNum = Math.round(num); // rounds to nearest whole number
-console.log(` Rounded number = ${roundedNum}`);
+
+
+console.log(`FINAL RESULTS:
+----------------    
+Original:    ${num}
+wholeNum:    ${wholeNumberPart}
+Decimal:     ${decimalPart}
+FourDigits:  ${fourDigits}
+roundedNum:  ${roundedNum}`);
+
+
+
+
+
+function roundToDecimalPlaces(number, decimalPlaces) {
+    const factor = Math.pow(10, decimalPlaces);
+    return Math.round(number * factor) / factor;
+}
+
+console.log(` 
+    -------------- function test --------------
+    Rounded to 4 decimal places = ${roundToDecimalPlaces(num, 4)}`); // rounds to 4 decimal places
