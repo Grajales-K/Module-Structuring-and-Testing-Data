@@ -1,7 +1,5 @@
 // Predict and explain first...
 
-const { t } = require("tar");
-
 // Why will an error occur when this program runs?
 // =============> write your prediction here
 
