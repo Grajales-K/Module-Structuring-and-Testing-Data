@@ -30,8 +30,11 @@
 
 
 
-function convertToPercentage(num) {
-  return  `${num * 100}%`;;
-}
+// function convertToPercentage(num) {
+//   return  `${num * 100}%`;;
+// }
+
+
+const convertToPercentage = (num) => `${num * 100}%`;
 
 console.log(convertToPercentage(0.80));
