@@ -20,7 +20,7 @@ function formatAs12HourClock(time) {
   return `${pad(midnight)}${min} am`;
 }
 
-
+//asserts for morning, afternoon, and midnight cases
 
 const currentOutput = formatAs12HourClock("00:00");
 const targetOutput = "12:00 am";
