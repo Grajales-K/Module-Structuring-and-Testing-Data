@@ -13,13 +13,10 @@ console.log(`The percentage change is ${percentageChange}`);
 
 // a) How many function calls are there in this file? Write down all the lines where a function call is made
 
-    // There are 6 function calls in this file:
-    // Line 5: carPrice.replaceAll(",", "")
-    // Line 5: Number(carPrice.replaceAll(",", ""))
-    // Line 6: priceAfterOneYear.replaceAll(",", "")    
-    // Line 6: Number(priceAfterOneYear.replaceAll(",", ""))
-    // Line 10: console.log(`The percentage change is ${percentageChange}`) this is also 
-    // a function call to log the output as string to the console, then call the var percentageChange 
+    // There are 5 function calls in this file:
+    // Line 4: Number() and replaceAll(",", "")
+    // Line 5: Number() and replaceAll(",", "")  
+    // Line 10: console.log()
 
 
 // b) Run the code and identify the line where the error is coming from - why is this error occurring? How can you fix this problem?
@@ -37,12 +34,12 @@ console.log(`The percentage change is ${percentageChange}`);
 
 // e) Describe what the expression Number(carPrice.replaceAll(",","")) is doing - what is the purpose of this expression?
 
-    // This expression will work in the parenthesis first, replacing all commas in the string carPrice
-    //  with an empty string, so basically returning the string 10000 instead of "10,000". 
-    //  Then the Number() function will convert that string "10000" into a number 10000.
-    //  secondly, js can not treat strings with commas as numbers, so we need to remove the commas
-    //  now with the number cleaned we can convert this string in number with the method Number().
+    // First, replaceAll(",", "") removes the commas from the string because JavaScript 
+    // cannot perform math on strings containing symbols. It turns "10,000" into "10000".
 
+    // Then, the Number() function converts that clean string into an actual number.
+    // The purpose is to prepare the data for calculation; without this, JavaScript 
+    // would return NaN (Not a Number) when trying to subtract the prices.
 
     
 // ---------- console.log each step to see the results ----------
