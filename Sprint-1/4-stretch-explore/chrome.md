@@ -11,7 +11,7 @@ In the Chrome console,
 invoke the function `alert` with an input string of `"Hello world!"`;
 
     To invoke an alert that lives in the engine v8; we need to 
-    run `alert("Hi there!")`
+    run `alert("Hello word")`
 
 
 What effect does calling the `alert` function have?
@@ -32,7 +32,7 @@ Now try invoking the function `prompt` with a string input of `"What is your nam
     let myName = prompt("What is your name");
     alert("hi " + myName);
 
-    The prompt function displays a modal dialog that captures user input. The value entered is stored in myName, and alert then displays a greeting that includes that value input captured by the variable myName.
+    The prompt function displays a modal dialog that captures user input. The value entered is stored in myName, and alert then displays a greeting that includes the value stored in the variable myName.
 
 
 What effect does calling the `prompt` function have?
