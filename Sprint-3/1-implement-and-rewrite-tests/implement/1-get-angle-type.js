@@ -51,11 +51,11 @@ function assertEquals(actualOutput, targetOutput) {
 
 // TODO: Write tests to cover all cases, including boundary and invalid cases.
 // Example: Identify Right Angles
-const right = getAngleType(45);
+const right = getAngleType(90);
 assertEquals(right, "Right angle");
 const acute = getAngleType(45);
 assertEquals(acute, "Acute angle");
-const obtuse = getAngleType(180);
+const obtuse = getAngleType(110);
 assertEquals(obtuse, "Obtuse angle");
 const straight = getAngleType(180);
 assertEquals(straight, "Straight angle");

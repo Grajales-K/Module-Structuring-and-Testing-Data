@@ -11,7 +11,10 @@
 // execute the code to ensure all tests pass.
 
 function isProperFraction(numerator, denominator) {
-  // TODO: Implement this function
+  if (numerator < denominator ){
+    return true;
+  }
+  return false;
 }
 
 // The line below allows us to load the isProperFraction function into tests in other files.
@@ -30,4 +33,9 @@ function assertEquals(actualOutput, targetOutput) {
 // What combinations of numerators and denominators should you test?
 
 // Example: 1/2 is a proper fraction
-assertEquals(isProperFraction(1, 2), true);
+assertEquals(isProperFraction(3, 2), false);
+assertEquals(isProperFraction(2, 2), false);
+assertEquals(isProperFraction(3, 4), true);
+assertEquals(isProperFraction(5, 3), false);
+assertEquals(isProperFraction(0, 5), true);
+console.log("✓ All test executed!");
