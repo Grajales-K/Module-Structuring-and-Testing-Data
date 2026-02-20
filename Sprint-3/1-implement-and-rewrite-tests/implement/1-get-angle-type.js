@@ -15,7 +15,7 @@
 // execute the code to ensure all tests pass.
 
 function getAngleType(angle) {
-  if(angle < 90){
+  if(angle > 0 && angle < 90){
     return "Acute angle";
   } else if (angle === 90){
     return "Right angle";
@@ -26,7 +26,7 @@ function getAngleType(angle) {
   } else if (angle > 180 && angle < 360){
     return "Reflex angle";
   }
-  return "invalid angle";
+  return "Invalid angle";
 
 }
 
@@ -37,14 +37,31 @@ module.exports = getAngleType;
 // This helper function is written to make our assertions easier to read.
 // If the actual output matches the target output, the test will pass
 function assertEquals(actualOutput, targetOutput) {
+
   console.assert(
     actualOutput === targetOutput,
-    `Expected ${actualOutput} to equal ${targetOutput}`
+    `❌ Error: expected ${actualOutput} to equal ${targetOutput}`
   );
+
+  if (actualOutput === targetOutput) {
+    console.log(`✅ Test passed: ${actualOutput} equals ${targetOutput}`);
+  }
+  
 }
 
 // TODO: Write tests to cover all cases, including boundary and invalid cases.
 // Example: Identify Right Angles
-const right = getAngleType(90);
+const right = getAngleType(45);
 assertEquals(right, "Right angle");
+const acute = getAngleType(45);
+assertEquals(acute, "Acute angle");
+const obtuse = getAngleType(180);
+assertEquals(obtuse, "Obtuse angle");
+const straight = getAngleType(180);
+assertEquals(straight, "Straight angle");
+const reflex = getAngleType(240);
+assertEquals(reflex, "Reflex angle");
+const invalid = getAngleType(-10);
+assertEquals(invalid, "Invalid angle");
+console.log("✓ All test executed!");
 
