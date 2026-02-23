@@ -17,7 +17,3 @@
 function calculateBMI(weight, height) {
     // return the BMI of someone based off their weight and height
 }
-
-
-
-// update the code below to test your function with different inputs
