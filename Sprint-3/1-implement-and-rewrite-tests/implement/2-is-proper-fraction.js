@@ -12,14 +12,10 @@
 
 function isProperFraction(numerator, denominator) {
 
-  if(denominator === 0){
+  if(denominator === 0 || numerator === 0){
     return false
   }
   
-  if (typeof numerator !== "number" || typeof denominator !== "number") {
-    return false; 
-  }
-
   if (numerator < 0) {
     numerator = numerator * -1;
   }
@@ -58,6 +54,4 @@ assertEquals(isProperFraction(-3, -5), true);
 // Example: 3/2 is a improper fraction
 assertEquals(isProperFraction(3, 0), false);
 assertEquals(isProperFraction(-7, 5), false);
-assertEquals(isProperFraction(5, "-36"), false);
-assertEquals(isProperFraction("-8", 5), false);
 console.log("✓ All test executed!");
