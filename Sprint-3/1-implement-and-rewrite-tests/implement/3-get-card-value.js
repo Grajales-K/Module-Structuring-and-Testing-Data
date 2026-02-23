@@ -22,8 +22,49 @@
 // execute the code to ensure all tests pass.
 
 function getCardValue(card) {
-  // TODO: Implement this function
+  //check the length and if does not match the valid length throw an error
+  if (card.length < 2 || card.length > 3) {
+    throw new Error("Invalid card");
+  }              "♠";
+  const suits = ["♠", "♥", "♦", "♣"];
+  const suit = card[card.length - 1];
+
+  let suitValid = false;
+
+  for(let i = 0; i < suits.length; i++){
+    if(suit === suits[i]){
+      suitValid = true;
+      break;
+    }
+  }
+  // after comparing each suit in our array and does not match throw an error
+  if(suitValid === false){
+    throw new Error("Invalid card suit");
+  }
+
+
+  let rank = card.substring(0, card.length -1);
+  console.log(rank);
+
+  if (rank === "A") {
+    return 11;
+  }
+  if (rank === "J" || rank === "Q" || rank === "K") {
+    return 10;
+  }
+
+  let number = Number(rank);
+  
+  if (isNaN(number) || number < 2 || number > 10) {
+    throw new Error("Invalid card rank");
+  }
+
+  return number;
 }
+
+
+
+
 
 // The line below allows us to load the getCardValue function into tests in other files.
 // This will be useful in the "rewrite tests with jest" step.
@@ -39,7 +80,13 @@ function assertEquals(actualOutput, targetOutput) {
 
 // TODO: Write tests to cover all outcomes, including throwing errors for invalid cards.
 // Examples:
-assertEquals(getCardValue("9♠"), 9);
+assertEquals(getCardValue("2♠"), 2), true;
+assertEquals(getCardValue("d"), d), false;
+// assertEquals(getCardValue("10♥"), 10);
+
+
+
+
 
 // Handling invalid cards
 try {
@@ -47,6 +94,8 @@ try {
 
   // This line will not be reached if an error is thrown as expected
   console.error("Error was not thrown for invalid card");
-} catch (e) {}
+} catch (e) { 
+  console.log("✓ Error thrown as expected for invalid card");
+}
 
 // What other invalid card cases can you think of?
