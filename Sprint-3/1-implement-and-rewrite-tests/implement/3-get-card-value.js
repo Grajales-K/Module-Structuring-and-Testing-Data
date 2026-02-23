@@ -25,26 +25,24 @@ function getCardValue(card) {
   //check the length and if does not match the valid length throw an error
   if (card.length < 2 || card.length > 3) {
     throw new Error("Invalid card");
-  }              "♠";
+  }
   const suits = ["♠", "♥", "♦", "♣"];
   const suit = card[card.length - 1];
 
   let suitValid = false;
 
-  for(let i = 0; i < suits.length; i++){
-    if(suit === suits[i]){
+  for (let i = 0; i < suits.length; i++) {
+    if (suit === suits[i]) {
       suitValid = true;
       break;
     }
   }
   // after comparing each suit in our array and does not match throw an error
-  if(suitValid === false){
+  if (suitValid === false) {
     throw new Error("Invalid card suit");
   }
 
-
-  let rank = card.substring(0, card.length -1);
-  console.log(rank);
+  let rank = card.substring(0, card.length - 1);
 
   if (rank === "A") {
     return 11;
@@ -54,7 +52,7 @@ function getCardValue(card) {
   }
 
   let number = Number(rank);
-  
+
   if (isNaN(number) || number < 2 || number > 10) {
     throw new Error("Invalid card rank");
   }
@@ -62,31 +60,49 @@ function getCardValue(card) {
   return number;
 }
 
-
-
-
-
 // The line below allows us to load the getCardValue function into tests in other files.
 // This will be useful in the "rewrite tests with jest" step.
 module.exports = getCardValue;
 
 // Helper functions to make our assertions easier to read.
 function assertEquals(actualOutput, targetOutput) {
-  console.assert(
-    actualOutput === targetOutput,
-    `Expected ${actualOutput} to equal ${targetOutput}`
-  );
+  if (actualOutput !== targetOutput) {
+    console.error(
+      `❌ FAILED: Expected ${targetOutput} but received ${actualOutput}`
+    );
+  } else {
+    console.log(`✅ PASSED: Value is ${actualOutput} as expected`);
+  }
+}
+
+function assertThrows(invalidCard) {
+  try {
+    getCardValue(invalidCard);
+    console.error(
+      `❌ FAILED: "${invalidCard}" should have thrown an error, but it didn't`
+    );
+  } catch (e) {
+    console.log(`✅ PASSED: Error catch para "${invalidCard}" [${e.message}]`);
+  }
 }
 
 // TODO: Write tests to cover all outcomes, including throwing errors for invalid cards.
 // Examples:
-assertEquals(getCardValue("2♠"), 2), true;
-assertEquals(getCardValue("d"), d), false;
-// assertEquals(getCardValue("10♥"), 10);
+console.log("--- Running Success Tests ---");
+assertEquals(getCardValue("2♠"), 2);
+assertEquals(getCardValue("10♥"), 10);
+assertEquals(getCardValue("A♣"), 11);
+assertEquals(getCardValue("K♦"), 10);
+assertEquals(getCardValue("J♠"), 10);
+assertEquals(getCardValue("Q♥"), 10);
+assertEquals(getCardValue("7♦"), 7);
 
-
-
-
+console.log("\n--- Running Edge Case Tests ---");
+assertThrows("d");
+assertThrows("15♥");
+assertThrows("A");
+assertThrows("JPP");
+assertThrows("Q🌸");
 
 // Handling invalid cards
 try {
@@ -94,7 +110,7 @@ try {
 
   // This line will not be reached if an error is thrown as expected
   console.error("Error was not thrown for invalid card");
-} catch (e) { 
+} catch (e) {
   console.log("✓ Error thrown as expected for invalid card");
 }
 
