@@ -27,8 +27,26 @@
 
 // console.log(countedPetsStartingWithH); // { 'HAMSTER': 3, 'HORSE': 1 } <- Final console log
 
+/**
+Removed Unused Global Variables: Deleted const capitalisedPets because the array was being processed
+but never used anywhere in the script.
 
+Eliminated Dead Code (Functions): Removed the logPets function since it was never called, keeping 
+the codebase focused only on the required output.
 
+Simplified Internal Logic:
+
+Renamed the function to countPets for brevity.
+
+Replaced the if/else statement inside the forEach loop with a Logical OR shortcut (|| 0). This 
+handles both initializing the count and incrementing it in a single line.
+
+Optimized Memory Usage: Removed the intermediate variable countedPetsStartingWithH. Instead, 
+I passed the function call directly into console.log, as the result didn't need to be stored for further use.
+
+Improved Code Scope: Ensured the function uses its local parameter instead of relying on external 
+global variables.
+*/
 
 const pets = ["parrot", "hamster", "horse", "dog", "hamster", "cat", "hamster"];
 const petsStartingWithH = pets.filter((pet) => pet[0] === "h");
