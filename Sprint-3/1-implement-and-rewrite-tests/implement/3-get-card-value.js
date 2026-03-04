@@ -28,16 +28,7 @@ function getCardValue(card) {
   const suits = ["♠", "♥", "♦", "♣"];
   const suit = card[card.length - 1];
 
-  let suitValid = false;
-
-  for (let i = 0; i < suits.length; i++) {
-    if (suit === suits[i]) {
-      suitValid = true;
-      break;
-    }
-  }
-  // after comparing each suit in our array and does not match throw an error
-  if (suitValid === false) {
+  if (!suits.includes(suit)) {
     throw new Error("Invalid card suit");
   }
 
