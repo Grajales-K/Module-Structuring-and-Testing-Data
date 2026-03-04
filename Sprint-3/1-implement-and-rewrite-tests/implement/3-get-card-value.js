@@ -22,7 +22,6 @@
 // execute the code to ensure all tests pass.
 
 function getCardValue(card) {
-  //check the length and if does not match the valid length throw an error
   if (card.length < 2 || card.length > 3) {
     throw new Error("Invalid card");
   }
