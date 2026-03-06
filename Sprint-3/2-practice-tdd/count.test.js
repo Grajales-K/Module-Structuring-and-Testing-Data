@@ -42,3 +42,12 @@ test("Should return 0 for empty string", () => {
 test("should be case sensitive", () => {
   expect(countChar("aA", "a")).toEqual(1);
 });
+
+//case 5 Non-alphabet characters
+test(`Should work with numbers and symbols`, () => {
+  expect(countChar("123451234123!&", "1")).toEqual(3);
+  expect(countChar("@1hello@", "@")).toEqual(2);
+  expect(countChar("white space ", " ")).toEqual(2);
+  expect(countChar("-2534!-1322!", "!")).toEqual(2);
+  expect(countChar("-hello ", "-")).toEqual(1);
+})
